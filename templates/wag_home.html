@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/wag_home_style.css') }}">
+    <title>Wag-O-Meter</title>
+  </head>
+  <body style="background-image: url('{{ url_for('static', filename='images/background_image.png') }}')">
+  <audio id="background-audio" src="{{ url_for('static', filename='audio/wag_sound.mp3') }}" loop></audio>
+    <div class="container">
+      <div class="title">
+        <img src="{{ url_for('static', filename='images/Wag-O-Meter.png') }}" width="500" height="500" alt="Logo">
+      </div>
+    </div>
+    <img src="{{ url_for('static', filename='images/lets_play.png') }}" onclick="openPopup()" width="400" height="250" alt="Open Popup" class="play-image open-popup-btn">
+    <!-- Modal (popup) -->
+    <div id="popup" class="popup-overlay">
+      <div class="score-card">
+        <h2>Wag-O-Meter</h2>
+        <form id="game-form">
+          <div class="label">Name</div>
+          <input type="text" class="input-field" id="username" name="username" placeholder="Enter dog name" required />
+          <div class="label">Time</div>
+          <select id="time" name="time" class="dropdown-field" required>
+            <option value="">--Select--</option>
+            <option value="2">2 mins</option>
+            <option value="4">4 mins</option>
+          </select>
+          <div class="label">Band Color</div>
+          <div class="color-options" >
+            <div class="color-option red" onclick="selectColor('red')"></div>
+            <div class="color-option blue" onclick="selectColor('blue')"></div>
+            <div class="color-option green" onclick="selectColor('green')"></div>
+          </div>
+          <div class="button-container">
+            <div class="button" style="background-color: green;" onclick="startGame()">Start</div>
+            <div class="button" style="background-color: red;" onclick="closePopup()">Cancel</div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/wag_home_script.js') }}"></script>
+  </body>
+</html>

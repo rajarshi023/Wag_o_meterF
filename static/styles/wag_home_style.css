@@ -1,0 +1,185 @@
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #A0D3E8;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(3px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 2em;
+      color: #333;
+    }
+
+    .play-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      color: white;
+      background-color: #FFD700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .play-image {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .play-image:hover {
+      transform: scale(1.1);
+    }
+
+    .social-buttons, .settings {
+      position: absolute;
+      bottom: 20px;
+    }
+
+    .social-buttons {
+      left: 20px;
+    }
+
+    .settings {
+      right: 20px;
+    }
+
+    .icon {
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    /* Popup container (initially hidden) */
+    .popup-overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Make sure the popup is on top */
+    }
+
+     .score-card {
+      border: 3px solid black;
+      background-color: #66bb6a;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+       border-radius: 50px; /* Slightly more rounded for effect */
+      background: linear-gradient(45deg, #ff9800, #ff6699, #00ff99, #4d88ff);
+      background-size: 300% 300%;
+      animation: border-animation 5s infinite linear;
+    }
+
+     @keyframes border-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .score-card h2 {
+      font-size: 24px;
+            color: #008080;
+            margin-top: 0;
+    }
+
+    .label {
+      font-size: 1em;
+      margin-top: 15px;
+    }
+
+    .value {
+      background-color: #388e3c;
+      padding: 8px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .input-field, .dropdown-field {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      text-align: center;
+      box-sizing: border-box; /* Ensures consistent width */
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Space between buttons */
+      margin-top: 20px;
+    }
+
+    .button {
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .color-options {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      justify-content: center; /* Center the color options horizontally */
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 2px solid white; /* Default border color */
+      transition: transform 0.2s;
+    }
+
+    .color-option.red {
+      background-color: #e60000;
+    }
+
+    .color-option.blue {
+      background-color: #0073e6;
+    }
+
+        .color-option.green {
+      background-color: #39e600;
+    }
+
+    .color-option.selected {
+      border: 3px solid #ffeb3b; /* Highlight selected color with yellow border */
+      transform: scale(1.1); /* Slightly enlarge selected color */
+    }

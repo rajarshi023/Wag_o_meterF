@@ -1,0 +1,99 @@
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #A0D3E8;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(3px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+        /* Fun frame styling */
+        .frame {
+            border: 10px solid #ffdd57;
+            border-radius: 30px;
+            position: relative;
+            background: linear-gradient(135deg, #ffb6c1, #87cefa, #ffffe0);
+            width: 800px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            animation: bounce 2s infinite;
+        }
+
+        /* Bouncing effect */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Emoji corners */
+        .frame::before, .frame::after {
+            content: "🎉";
+            font-size: 2.5em;
+            position: absolute;
+            animation: spin 5s infinite linear;
+        }
+
+        .frame::before {
+            top: -20px;
+            left: -20px;
+        }
+
+        .frame::after {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        /* Emoji spinning animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Image styling */
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+
+        /* Hover effect for image */
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Wiggle effect for caption */
+        @keyframes wiggle {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+                  .capture-btn {
+      background: linear-gradient(45deg, #f57c00, #ff9800);
+      color: white;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .capture-btn:hover {
+      background: linear-gradient(45deg, #ff5722, #ff9800);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }

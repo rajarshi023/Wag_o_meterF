@@ -1,0 +1,318 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #a0d3e8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Container for the entire game interface */
+.game-container {
+  margin-top: 100px;
+  position: relative;
+  width: 900px;
+  height: 700px; /* Making it a square */
+  background-color: #f5f5f5;
+  border: 2px solid #333;
+  border-radius: 30%; /* Makes the container circular */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 0; /* Div 2 will be below Div 1 */
+
+  /* Designer border styling */
+  border: 15px solid;
+  border-image: conic-gradient(
+      0 0 15px rgba(255, 165, 0, 0.6),
+      0 0 30px rgba(255, 140, 0, 0.5),
+      inset 0 0 10px rgba(255, 255, 255, 0.3) ;
+    )
+    1;
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.6), 0 0 30px rgba(255, 140, 0, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.3); /* Adds a glowing effect */
+}
+
+/* Top scoreboard section */
+.scoreboard {
+  position: absolute;
+  height: 30px;
+  top: 5px;
+  padding: 10px 20px;
+  background: #69d852;
+  color: #fff;
+  font-size: 2em;
+  font-family: "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px #d94e8c;
+}
+
+/* Circular start button */
+.stop-button-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1; /* Div 1 will be on top */
+}
+
+.stop-button {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border: 5px solid #5a422a;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect for start button */
+.stop-button:hover {
+  background-color: #ab1309;
+  transform: scale(1.05);
+}
+
+/* Button label */
+.start-button span {
+  font-weight: bold;
+}
+
+/* Fun "TIME" label */
+.time-label {
+  position: absolute;
+  top: 50px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ff4081, #ff80ab);
+  color: #fff;
+  font-size: 2em;
+  font-family: "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px #d94e8c;
+  transform: rotate(-5deg);
+  animation: bounce 1s infinite alternate;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  from {
+    transform: translateY(0) rotate(-5deg);
+  }
+  to {
+    transform: translateY(-10px) rotate(-5deg);
+  }
+}
+
+/* Score Progress Bar Container */
+.score-progress-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  height: 35px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Progress bar inner fill */
+.score-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8a00, #ffdd00);
+  width: 0%; /* Start at 0% and increase with JavaScript */
+  border-radius: 15px;
+  transition: width 0.4s ease; /* Smooth progress effect */
+}
+
+/* Centered Score text */
+.score-text {
+  position: absolute;
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none; /* Prevents text from interfering with progress bar clicks */
+  z-index: 1; /* Ensure it stays above the progress fill */
+}
+
+/* Start Button */
+.start-button {
+  width: 150px;
+  height: 150px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Score Progress Container */
+.score-container {
+  top: 50px;
+  right: 20px;
+  width: 300px;
+  height: 25px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between stars */
+  font-size: 1.5em;
+  color: #ffd700;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Star image styling with animation */
+.star-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: pop-in 0.4s forwards;
+}
+
+/* Pop-in animation for stars */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Score Progress Bar Container */
+.coin-container {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  width: 300px;
+  height: 25px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+}
+
+
+/* Progress bar inner fill */
+.coin-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #ff8a00, #ffdd00);
+  width: 0%; /* Start at 0% and increase with JavaScript */
+  border-radius: 15px;
+  transition: width 0.4s; /* Smooth progress effect */
+}
+
+/* Centered Score text */
+.score-text {
+  margin-left: 40px;
+  position: absolute;
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none; /* Prevents text from interfering with clicks */
+  z-index: 1; /* Keeps it above the progress fill */
+}
+
+/* Coin icon in front of the progress bar */
+.coin-icon {
+  position: absolute;
+  top: 100px;
+  right: 280px;
+  width: 300px;
+  height: 25px;
+  transform: translateY(-50%); /* Adjust vertical centering */
+  width: 50px; /* Make the coin larger */
+  height: 50px; /* Make the coin larger */
+  z-index: 2; /* Ensure the coin stays above the progress bar */
+  transition: left 0.4s ease; /* Smooth movement of the coin */
+}
+
+    .container {
+      text-align: center;
+    }
+
+    #points-container {
+       position: absolute;
+        top: 200px;
+        right: 500px;
+         width: 300px;
+        height: 45px;
+         z-index: 1;
+    }
+
+    .point {
+      position: absolute;
+      font-size: 24px;
+      color: #0000ff;
+      font-weight: bold;
+      opacity: 0;
+      animation: float 1.5s ease-in-out forwards;
+      font-size: 50px;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-80px);
+      }
+    }

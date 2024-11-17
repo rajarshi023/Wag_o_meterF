@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamified Point Gain</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 30px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+
+    #points-container {
+       position: absolute;
+  top: 90px;
+  right: 20px;
+  width: 300px;
+  height: 25px;
+    }
+
+    .point {
+      position: absolute;
+      font-size: 24px;
+      color: #ffcc00;
+      opacity: 0;
+      animation: float 1.5s ease-in-out forwards;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gamified Point Gain System</h1>
+    <button onclick="gainPoint()">Click Me</button>
+    <div id="points-container"></div>
+  </div>
+
+  <script>
+    let totalPoints = 0;
+
+    function gainPoint() {
+      totalPoints += 1;
+
+      // Create the point element
+      const point = document.createElement('div');
+      point.classList.add('point');
+      point.textContent = '+1 Point';
+
+      // Position the point in the top-right corner
+      const container = document.getElementById('points-container');
+      const xOffset = Math.random() * 100; // Random horizontal offset
+      const yOffset = Math.random() * 100 - 50; // Random vertical offset (near top-right corner)
+      point.style.top = `${yOffset}px`;
+      point.style.right = `${xOffset}px`;
+
+      // Append to container
+      container.appendChild(point);
+
+      // Remove point after animation
+      setTimeout(() => {
+        point.remove();
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

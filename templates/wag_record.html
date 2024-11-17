@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/wag_record_style.css') }}">
+    <title>Wag-O-Meter</title>
+  </head>
+  <body style="background-image: url('{{ url_for('static', filename='images/background_image.png') }}')">
+    <audio id="background-audio" src="{{ url_for('static', filename='audio/wag_sound.mp3') }}" loop></audio>
+
+  <button class="home-btn" onclick="goHome()">Home</button>
+
+    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+
+ <div class="container">
+    <img src="{{ url_for('static', filename='photos/captured_photo.jpg') }}" alt="Dog Image" class="dog-image">
+    <h1 id="dogName">Dog Game</h1>
+    <div class="score-label">Score</div>
+    <p class="score" id="score">0</p>
+    <button id="captured-photo" onclick="showLeaderboard()" class="leaderboard-btn">Show Leaderboard</button>
+  </div>
+
+ <!-- The Modal -->
+<!-- Modal for Leaderboard -->
+  <div id="myModal" class="modal" style="display: none">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h2>Top Players</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-list">
+          <!-- Player names and scores will appear here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+    <script src="{{ url_for('static', filename='js/wag_record_script.js') }}"></script>
+  </body>
+</html>

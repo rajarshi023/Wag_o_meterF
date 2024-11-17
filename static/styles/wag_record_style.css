@@ -1,0 +1,274 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #a0d3e8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+      width: 300px; /* Fixed static width */
+      padding: 3em;
+      background-color: #fff;
+      border: 4px solid #FF5722;
+      border-radius: 50px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      transform: rotate(-5deg);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .container:hover {
+      transform: rotate(0deg);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .dog-image {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #FF5722;
+      margin-top: 60px;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+    .score-label {
+      font-size: 1.2em;
+      color: #FF5722;
+      font-weight: bold;
+      display: inline-block;
+      padding: 0.4em 1em;
+      background: #ffcccb;
+      border-radius: 10px;
+      margin-bottom: 0.5em;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .score {
+      font-size: 4em;
+      color: #4CAF50;
+      font-weight: bold;
+      margin: 0.5em 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+            margin: 0;
+            overflow: hidden;
+    }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+          .leaderboard-btn {
+      background: linear-gradient(45deg, #f57c00, #ff9800);
+      color: white;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .leaderboard-btn:hover {
+      background: linear-gradient(45deg, #ff5722, #ff9800);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .input-box {
+      margin: 1.5em 0;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1.1em;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      width: 80%;
+      margin-top: 10px;
+      background-color: #444;
+      color: #fff;
+    }
+
+    /* Modal Overlay */
+    .modal {
+    display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Modal Content */
+    .modal-content {
+     top: 50px;
+      margin: 5% auto;
+      background: radial-gradient(circle at top left, #ffdd57, #ff99c8);
+      border: 5px solid #ffd700;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      animation: popupAnimation 0.5s ease;
+    }
+
+    /* Popup Animation */
+    @keyframes popupAnimation {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Close Button */
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff3b3b;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    /* Title */
+    .modal-content h2 {
+      color: #4a90e2;
+      font-size: 2em;
+      margin-top: 0;
+    }
+
+    /* Emoji Icon */
+    .modal-content h2::before {
+      content: "🏆 ";
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      font-size: 1.2em;
+      color: black;
+    }
+
+    th, td {
+      padding: 12px;
+      border-radius: 8px;
+      background: #4a90e2;
+    }
+
+    th {
+      background: #ffab00;
+      font-size: 1.2em;
+      color: black;
+    }
+
+    /* Row Colors */
+    tr:nth-child(odd) td {
+      background-color: #f7c5d6;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #9ed8db;
+    }
+
+    /* Hover Effect */
+    tr:hover td {
+      background-color: #ff9800;
+      color: black;
+      cursor: pointer;
+      transform: scale(1.02);
+      transition: 0.3s;
+    }
+
+    /* Show Leaderboard Button */
+    .show-leaderboard-btn {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      color: white;
+      background-color: #ff5733;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    .show-leaderboard-btn:hover {
+      background-color: #ff8d66;
+      transform: scale(1.05);
+    }
+
+    /* Close Button */
+    .close {
+      color: #fff;
+      font-size: 1.5em;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ff5722;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .home-btn:hover {
+      background-color: #ff9800;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/wag_main_style.css') }}">
+    <title>Wag-O-Meter</title>
+  </head>
+  <body style="background-image: url('{{ url_for('static', filename='images/background_image.png') }}')">
+    <audio id="background-audio" src="{{ url_for('static', filename='audio/wag_sound.mp3') }}" loop></audio>
+
+    <!-- Score Progress Bar at the Top Right with Dog Image -->
+    <div class="score-progress-container">
+      <div class="score-progress" id="scoreProgress"></div>
+      <div class="score-text" id="scoreText">0</div>
+    </div>
+    <!-- Coin Collect -->
+    <img class="coin-icon" id="coinIcon" src="{{ url_for('static', filename='images/coin.png') }}" alt="Coin" />
+    <div class="coin-container">
+      <div class="coin-progress" id="coinProgress"></div>
+      <div class="score-text" id="coinText">0</div>
+    </div>
+      <div class="container">
+    <div id="points-container"></div>
+  </div>
+    <!-- Score Container to display collected stars -->
+    <div class="score-container" id="scoreContainer"></div>
+    <!-- Fun "TIME" Label -->
+    <div id="countdown-overlay" class="time-label"> 00:00 </div>
+    <!-- Game Container -->
+    <div class="game-container">
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        <span id="wag-count-display">Wag Count: 0</span>
+      </div>
+      <!-- Live Video Feed Section with Countdown Overlay -->
+      <div>
+        <img src="{{ url_for('video_feed') }}" class="video-container" width="900" height="700" alt="Video Feed" style="border-radius: 40px;">
+      </div>
+    </div>
+    <!-- stop Button Container -->
+    <div class="stop-button-container">
+      <div class="stop-button" onclick="stopCapture()">
+        <span>STOP</span>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/wag_main_script.js') }}"></script>
+  </body>
+</html>

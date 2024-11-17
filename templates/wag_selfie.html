@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/wag_selfie_style.css') }}">
+    <title>Wag-O-Meter</title>
+  </head>
+  <body style="background-image: url('{{ url_for('static', filename='images/background_image.png') }}')">
+    <audio id="background-audio" src="{{ url_for('static', filename='audio/wag_sound.mp3') }}" loop></audio>
+
+      <h1 style="color: #CC14D8">Selfie Time</h1>
+    <!-- Use MJPEG stream from Flask with the 'video_feed' route -->
+      <div class="frame">
+    <img id="webcam" src="{{ url_for('video_feed2') }}" >
+    </div>
+    <br>
+    <button id="captureButton" class="capture-btn">Capture Photo</button>
+
+    <script src="{{ url_for('static', filename='js/wag_selfie_script.js') }}"></script>
+  </body>
+</html>
