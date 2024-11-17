@@ -69,6 +69,6 @@ function startGame(){
 }
 
 window.addEventListener("mouseover", () => {
-  //startBackgroundAudio();
+  startBackgroundAudio();
 }, { once: false });
 
